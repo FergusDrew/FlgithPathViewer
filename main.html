@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="icon" href="Assets/A.png" type="image/gif" sizes="16x16">
+  <!-- Styles-->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+    crossorigin="" />
+
+  <link rel="stylesheet" href="style.css">
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+    crossorigin=""></script>
+  <title> Group A Sci-Toolset API </title>
+  <script src='https://api.mapbox.com/mapbox.js/v3.3.1/mapbox.js'></script>
+  <link href='https://api.mapbox.com/mapbox.js/v3.3.1/mapbox.css' rel='stylesheet' />
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Lora&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet"> 
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"
+  integrity="sha512-d9xgZrVZpmmQlfonhQUvTR7lMPtO7NkZMkA0ABN3PHCbKA5nqylQ/yWlFAyY6hYgdF1Qh6nYiuADWwKB4C2WSw=="
+  crossorigin="anonymous"></script>
+  
+  <!-- <script src="node_modules/leaflet-toolbar/dist/leaflet.toolbar.js"></script>
+<script src="node_modules/leaflet-draw-toolbar/dist/leaflet.draw-toolbar.js"></script>
+<link rel="stylesheet" href="node_modules/leaflet-toolbar/dist/leaflet.toolbar.css"/>
+<link rel="stylesheet" href="node_modules/leaflet-draw-toolbar/dist/leaflet.draw-toolbar.css"/> -->
+  <meta charset="utf-8">
+
+</head>
+<title> Group A Sci-Toolset API </title>
+</head>
+
+<body>
+  <header>
+    <!-- NAV -->
+    <nav>
+      
+      <ul class="nav-list">
+        <li class="nav-button">
+          <a class="active" href="./HelpPage/indexHelp.html"  id="HelpButton">
+            <img src="./Assets/helpIcon.PNG" width = "40" height = "30" alt="">
+            Help
+          </a>
+        </li>
+
+        <li class="nav-button">
+          <a href="index.html">
+            <img src="./Assets/logoutIcon.PNG" width = "40" height = "30" alt="">
+            Log Out
+          </a>
+        </li>
+      </ul>
+
+      <ul class="nav-list">
+        <li class="nav-button">
+          <a id="CreateButton" onclick="createNewTag()">Create Tag</a>
+          <a id="ConfirmButton" onclick="confirmTags()">
+            <img src="./Assets/tickConfirm.PNG" width = "40" height = "30" alt="">
+            Confirm Tag
+          </a>
+        </li>
+        
+        <li class="nav-button dropdown">
+          <a id="SelectTag" class="dropbtn">Select Tag<i class="fa fa-caret-down"></i></a>
+          <div class="dropdown-content"></div>
+        </li> 
+
+        <li class="nav-button">
+          
+          <a id="EditTags" onclick="editTag()"> 
+            <img src="./Assets/editIcon.PNG" width = "40" height = "30" alt="">
+            Edit Tag
+          </a>
+        </li> 
+
+        <li class="nav-button">
+          <a id="DeleteButton" onclick="deleteTag()">
+            <img src="./Assets/bin.PNG" width = "40" height = "30" alt="">
+            Delete Tag
+          </a>
+        </li>
+      </ul>
+
+      <ul class="nav-list">
+        <div id="dateTimeDisplay">
+        <div id="MyClockDisplay" class="clock" onload="showTime()"></div>
+        <div id="MyDateDisplay" class ="date" onload ="dateDisplay()"></div>
+        </div>
+      </ul>
+    </nav>
+  </header>
+  <div id="main">
+    <aside>
+      <div class="sidebarItems">
+        <div class="item">
+          <div class="searchItem">
+            <input type="text" name="searchbar" oninput="predictiveSearch()" onkeypress="handle(event)"  id="search" placeholder="Search ID...">
+            <div class="autocom-box">
+              <!--list inserted here from javascript-->
+            </div>
+            <div class="icon"><i class="fas fa-search"></i></div>
+            <button type="submit" id="searchbutton" onclick="">Search</button>
+          </div>
+        </div>
+      </div>
+      <div class="item">
+
+        <div id="dateSelection">
+          <div class="date-input-container">
+            <label>Start Date: </label>
+            <input type="date" name="datePick" id="datePick" onclick="setdate(this)">
+          </div>
+
+          <div class="date-input-container">
+            <label>End Date: </label>
+            <input type="date" name="datePick2" id="datePick2" onclick="setdate(this)">
+          </div>
+
+          <div class="date-input-container">
+            <label>Start time:</label>
+            <input type="time" id="timeSel" name="timeSel">
+          </div>
+
+          <div class="date-input-container">
+            <label>End time:</label>
+            <input type="time" id="timeSel2" name="timeSel2">
+          </div>
+          
+        </div>
+        
+        <div id="buttons">
+          <button class="button" id="buttonConfirm" onclick="displayStart()"> Confirm Dates & Times</button>
+          <button class="button" id="showAllFlights" onclick="showAllFlights(data)">Show All Flights</button>
+        </div>
+
+        <div id="stats-container">
+          <ul id="stats-display-time">
+            <h3>Time Analytics</h3><button class="button" id="buttonCloseTimeAnaly" onclick="Analytics.closeTimeAnal()">Close Menu</button>
+            <li id="avg-time">
+              <p id="stat-title">Average:</p><span id="stat-data"></span>
+            </li>
+            <li id="shortest-time">
+              <p id="stat-title">Shortest:</p><span id="stat-data"></span>
+            </li>
+            <li id="longest-time">
+              <p id="stat-title">Longest:</p><span id="stat-data"></span>
+            </li>
+            <li id="total-time">
+              <p id="stat-title">Total:</p><span id="stat-data"></span>
+            </li>
+            <li id="percentage-time">
+              <p id="stat-title">Percent:</p><span id="stat-data"></span>
+            </li>
+          </ul>
+          <ul id="stats-display">
+            <h3>Area Coverage Analytics</h3><button class="button" id="buttonCloseAreaAnaly" onclick="Analytics.closeAreaAnal()">Close Menu</button>
+            <li id="avg-area">
+              <p id="stat-title">Average:</p><span id="stat-data"></span>
+            </li>
+            <li id="smallest-area">
+              <p id="stat-title">Smallest: </p><span id="stat-data"></span>
+            </li>
+            <li id="largest-area">
+              <p id="stat-title">Largest:</p><span id="stat-data"></span>
+            </li>
+            <li id="total-area">
+              <p id="stat-title">Total:</p><span id="stat-data"></span>
+            </li>
+            <li id="percentage-area">
+              <p id="stat-title">Percent:</p><span id="stat-data"></span>
+            </li>
+          </ul>
+        </div>
+        <div class="chartWrapper">
+          <div class="chartContainer">
+            <canvas id="num-flights-chart" width="340" height="300"></canvas>
+          </div>
+        </div>
+    </aside>
+    <article>
+      <div id="mapid"></div>
+    </article>
+    
+    <div id="hint-text"></div>
+    
+  </div>
+
+  <div id="loading-overlay">
+    <div id="loading-plane"></div>
+    <section>
+      <div class="loading loading04">
+        <span id="l">L</span>
+        <span id="o">O</span>
+        <span id="a">A</span>
+        <span id="d">D</span>
+        <span id="i">I</span>
+        <span id="n">N</span>
+        <span id="g">G</span>
+      </div>
+    </section>
+  </div>
+
+  <!-- Scripts -->
+
+  <script type="text/javascript" src="tags.js"></script>
+  <script type="text/javascript" src="colourChanger.js"></script>
+  <script type="text/javascript" src="APIData.js"></script>
+  <script type="text/javascript" src="predictiveSearch.js"></script>
+  <script type="text/javascript" src="missionData.js"></script>
+  <script type="text/javascript" src="analytics.js"></script>
+  <script type="text/javascript" src="index.js"></script>
+  <script type="text/javascript" src="L.Control.MousePosition.js"></script>
+  <script type="text/javascript" src="mapWork.js"></script>
+  <script type="text/javascript" src="charts.js"></script>
+  <script type="text/javascript" src="clock.js"></script>
+  <script type="text/javascript" src="date.js"></script>
+
+  
+
+
+</body>
+
+</html>

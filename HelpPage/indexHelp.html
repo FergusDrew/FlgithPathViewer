@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>document.getElementsByTagName("html")[0].className += " js";</script>
+  <link rel="stylesheet" href="./css/style.css">
+  <title>Help | Group A</title>
+</head>
+<body>
+<header class="cd-header flex flex-column flex-center">
+  <div class="text-component text-center">
+    <h1> Group A | Help page</h1>
+  </div>
+  <div>
+	<li class="nav-button">
+		<a class="active" href="../main.html"  id="HomeButton">
+		  - - - HOME - - -
+		</a>
+	  </li>
+  </div>
+</header>
+
+<section class="cd-faq js-cd-faq container max-width-md margin-top-lg margin-bottom-lg">
+	<ul class="cd-faq__categories">
+		<li><a class="cd-faq__category cd-faq__category-selected truncate" href="#basics">Basics</a></li>
+		<li><a class="cd-faq__category truncate" href="#mobile">Bug Fixes & Changes</a></li>
+		<li><a class="cd-faq__category truncate" href="#account">How it was made</a></li>
+		<li><a class="cd-faq__category truncate" href="#payments">Thankyou!</a></li>
+	</ul> <!-- cd-faq__categories -->
+
+	<div class="cd-faq__items">
+		<ul id="basics" class="cd-faq__group">
+			<li class="cd-faq__title"><h2>The Basics</h2></li>
+			<li class="cd-faq__item">
+				<a class="cd-faq__trigger" href="#0"><span>Time and Date selection</span></a>
+				<div class="cd-faq__content">
+          <div class="text-component">
+            <p>
+				To alter the time and date filters first enter your start date from the missions you want to view. From then you can then choose a start date as the end time of the missions you wish to view, if not then all mission flights after this data will be shown on the map.</p>
+          </div>
+				</div> <!-- cd-faq__content -->
+			</li>
+
+			<li class="cd-faq__item">
+				<a class="cd-faq__trigger" href="#0"><span>Time Analytics</span></a>
+				<div class="cd-faq__content">
+          <div class="text-component">
+            <p>This section will display to you all the temporal data. If you have not selected any dates then all the data loaded will be displayed and will be calculated to give you usable data. But if you select dates and times you want to filter through then the data from those times will be shown.</p>
+          </div>
+				</div> <!-- cd-faq__content -->
+			</li>
+
+			<li class="cd-faq__item">
+				<a class="cd-faq__trigger" href="#0"><span>Area coverage analytics</span></a>
+				<div class="cd-faq__content">
+          <div class="text-component">
+            <p>
+				The same as the time analytics this will show all the area coverage of the loaded data should you not select your prefferences in time but if they are selected then it will show you them for the current flights and area that was selected.</p>
+          </div>
+				</div> <!-- cd-faq__content -->
+			</li>
+
+			<li class="cd-faq__item">
+				<a class="cd-faq__trigger" href="#0"><span>Tagging</span></a>
+				<div class="cd-faq__content">
+          <div class="text-component">
+            <p>The tagging system can be used for separating the different flight data you want to display. First a tag must be created and named. Then you must click on the select tags to choose which flights you wish to add to the tag. Then you can confirm your choices to see only those selected in a different colour. You can also edit the tag settings and delete said tag.</p>
+          </div>
+				</div> <!-- cd-faq__content -->
+			</li>
+		</ul> <!-- cd-faq__group -->
+
+		<ul id="mobile" class="cd-faq__group">
+			<li class="cd-faq__title"><h2>Bug Fixes & Changes</h2></li>
+			<li class="cd-faq__item">
+				<a class="cd-faq__trigger" href="#0"><span>Version 1.0.1</span></a>
+				<div class="cd-faq__content">
+          <div class="text-component">
+            <p>- Fixed navigation bar images <br> - Corrected positioning of 'create tag' and 'select tag' buttons</p>
+			<h4>Version 1.0.0</h4>
+            <p>- Improved map performance <br> - Optimised loading times <br> - Corrected Loop error for plotting icons <br> - "Show all flights" button bug fixed</p>
+          </div>
+				</div> <!-- cd-faq__content -->
+			</li>
+
+		<ul id="account" class="cd-faq__group">
+			<li class="cd-faq__title"><h2>How it was made</h2></li>
+			<li class="cd-faq__item">
+				<a class="cd-faq__trigger" href="#0"><span>Languages & Libraries</span></a>
+				<div class="cd-faq__content">
+          <div class="text-component">
+            <p>- Leaflet JS <br> - PureJS <br> - HTML <br> - CSS <br> - SCSS <br> - MapBoxStudio API <br> - CodyHouse Framework</p>
+          </div>
+				</div> <!-- cd-faq__content -->
+			</li>
+
+			<li class="cd-faq__item">
+				<a class="cd-faq__trigger" href="#0"><span>Environments</span></a>
+				<div class="cd-faq__content">
+          <div class="text-component">
+            <p>- Visual Studio Code (1.53.2) <br> - Postman <br> - Trello <br> - GitHub <br> - Discord <br> - Google Drive </p>
+          </div>
+				</div> <!-- cd-faq__content -->
+			</li>
+
+			<li class="cd-faq__item">
+				<a class="cd-faq__trigger" href="#0"><span>Plugins & Tools</span></a>
+				<div class="cd-faq__content">
+          <div class="text-component">
+            <p>- Live Share (plugin) <br> - Lighthouse (tool) <br> - Prettier (tool)  </p>
+          </div>
+				</div> <!-- cd-faq__content -->
+			</li>
+
+
+		<ul id="payments" class="cd-faq__group">
+			<li class="cd-faq__title"><h2>Thankyou!</h2></li>
+			<li class="cd-faq__item">
+				<a class="cd-faq__trigger" href="#0"><span>Thankyou</span></a>
+				<div class="cd-faq__content">
+          <div class="text-component">
+            <p>Thankyou for using our program! For us its been a great project to work on and has provided us all with good experience of a real world client, We have certainly enjoyed the task of creating this analytics web app and hope you enjoy the final product :) <br> - Group A</p>
+          </div>
+				</div> <!-- cd-faq__content -->
+			</li>
+
+			<li class="cd-faq__item">
+				<a class="cd-faq__trigger" href="#0"><span>The Team</span></a>
+				<div class="cd-faq__content">
+          <div class="text-component">
+            <p> - Jordan Wright <br> - Ollie Newton-Hayes <br> - Adam Breakell <br> - Fergus Drew <br> - Maciej Zoladek</p>
+          </div>
+				</div> <!-- cd-faq__content -->
+			</li>
+
+
+
+	<a href="#0" class="cd-faq__close-panel text-replace">Close</a>
+  
+  <div class="cd-faq__overlay" aria-hidden="true"></div>
+</section> <!-- cd-faq -->
+<script src="./js/util.js"></script> 
+<script src="./js/main.js"></script> 
+</body>
+</html>
